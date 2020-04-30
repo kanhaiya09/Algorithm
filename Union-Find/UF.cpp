@@ -1,4 +1,4 @@
-#inclue<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 /*
@@ -19,7 +19,7 @@ class QuickFindUF{
 	public:
 		QuickFindUF(int n)
 		{
-			this.n = n;
+			this->n = n;
 			id = new int[n];
 			for(int i = 0 ; i < n;i++)
 				id[i] = i;        // they are all different component initially.
@@ -32,7 +32,7 @@ class QuickFindUF{
 		}
 		
 		// union : get the id of p and id of q.replace all occurence of id of p with id of q
-		void union(int p,int q){
+		void QFunion(int p,int q){
 			int idp = id[p];
 			int idq = id[q];
 			for(int i = 0 ; i < n ;i++)
@@ -46,10 +46,33 @@ class QuickFindUF{
 			return id[p];
 		}
 	
-		int count()
+		// returns the number of connected component
+		int count()   
 		{
+			int cnt = 0;
+			for(int i = 0 ;i< n ; i++)
+			{
+				if(id[i]==i)
+					cnt++;
+			}
+			return cnt;
 		}
 	private:
 		int n;
 		int *id;
 };
+
+
+int main()
+{
+	QuickFindUF s(8);
+	
+	s.QFunion(0,1);
+	s.QFunion(3,4);
+	s.QFunion(4,2);
+	s.QFunion(2,1);
+	s.QFunion(6,5);
+	s.QFunion(5,7);
+	
+	cout<<s.count();
+}
