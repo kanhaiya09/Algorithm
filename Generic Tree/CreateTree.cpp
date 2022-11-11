@@ -68,11 +68,25 @@ void displayTree(Node* root){
     }
 }
 
+
+void displayTree2(Node* root){
+    cout<<root->data <<" -> ";
+    for(int i = 0 ; i < root->children.size() ; i++){
+        cout<<root->children[i]->data <<" , ";
+    }
+    cout<<".\n";
+
+    for(int i = 0 ; i < root->children.size() ; i++){
+        displayTree2(root->children[i]);
+    }
+}
+
 int main(){
     Node* root;
     vector<int> eulerPath = {10,20,-1,30,40,-1,50,-1,-1,60,-1,-1};
     createTree(root,eulerPath);
     displayTree(root);
+    displayTree2(root);
 
 }
 
