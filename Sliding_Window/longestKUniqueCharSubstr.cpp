@@ -25,8 +25,12 @@ int longestKSubstr(string s, int k) {
     for(int j = 0 ; j < n ; j++){
         //calculation
         mp[s[j]]++;
+
+        //extract answer
         if(mp.size()==k)
             ans = max(ans,j-i+1);
+
+        //shrink
         while(mp.size()>k){
             mp[s[i]]--;
             if(mp[s[i]]==0){
