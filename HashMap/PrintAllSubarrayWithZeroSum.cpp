@@ -12,19 +12,19 @@ sum-> indexlist
 0  -> [-1 ]
 6  -> [ 0 ]
       [ 0 , 3 ]
-        1 -> 3
+        1 -> 3    //out.push_back()
       [ 0 , 3 , 5]
-        1 -> 5
-        4 -> 5
+        1 -> 5   //out.push_back()
+        4 -> 5   //out.push_back()
       [ 0 , 3 , 5 , 9]
-        1 -> 9
-        4 -> 9
-        6 -> 9  
+        1 -> 9   //out.push_back()
+        4 -> 9   //out.push_back()
+        6 -> 9   //out.push_back()
 5  -> [ 1 ]
 2  -> [ 2 ]
 4  -> [ 4 ]
       [ 4 , 8]
-        5 -> 8  
+        5 -> 8   //out.push_back()
 10 -> [ 6 ]
 16 -> [ 7 ]
 */
