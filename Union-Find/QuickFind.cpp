@@ -57,6 +57,7 @@ class QuickFindUF{
 			}
 			return cnt;
 		}
+		
 	private:
 		int n;
 		int *id;
