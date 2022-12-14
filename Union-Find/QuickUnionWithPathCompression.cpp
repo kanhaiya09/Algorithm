@@ -18,8 +18,12 @@ public:
             return p;
         
         else{
-            parent[p] = find(parent[p]);
-            return parent[p];
+            /*parent[p] = find(parent[p]);
+            return parent[p];*/
+
+            int root = find(parent[p]);
+            parent[p] = root;
+            return root;
         }
     }
 
@@ -43,7 +47,7 @@ public:
             cout<<i<<" ";
         }
         cout<<"\n";
-        cout<<std::left<<setw(10) <<"Parent :";
+        cout<<std::left<<setw(10) <<"Parent:";
         for(int i = 0 ; i < n ; i++){
             cout<<parent[i]<<" ";
         }
