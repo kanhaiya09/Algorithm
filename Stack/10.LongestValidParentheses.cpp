@@ -6,31 +6,34 @@
 
 class Solution {
 public:
-    string minRemoveToMakeValid(string s) {
+    int longestValidParentheses(string s) {
         int n = s.size();
-        vector<bool> is_ok(n,false);
+        vector<int> is_ok(n,0);
         stack<int> st;
-        for(int i = 0 ; i < n ; i++)
-        {
+        
+        for(int i = 0 ; i < n ; i++){
             if(s[i]=='(')
                 st.push(i);
-            else if(s[i]==')'){
-                if(!st.empty()){
-                    is_ok[st.top()] = true;
-                    is_ok[i] = true;
+            else{
+                if(!st.empty())
+                {
+                    is_ok[st.top()] = 1;
+                    is_ok[i] = 1;
                     st.pop();
                 }
-            }else  // other alphabets are ok
-                is_ok[i] = true;
+            }
         }
-        
-        string res= "";
-        for(int i =0  ; i < n ; i++){
+        int cnt = 0;
+        int ans = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
             if(is_ok[i])
-                res+= s[i];
+                cnt++;
+            else
+                cnt = 0;
+            ans = max(ans,cnt);
         }
         
-        return res;
+        return ans;
     }
 };
-
